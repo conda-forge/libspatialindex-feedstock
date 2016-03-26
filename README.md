@@ -73,6 +73,11 @@ Linux: [![Circle CI](https://circleci.com/gh/conda-forge/libspatialindex-feedsto
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/libspatialindex-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/libspatialindex-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/libspatialindex-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/libspatialindex-feedstock/branch/master)
 
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/libspatialindex/badges/version.svg)](https://anaconda.org/conda-forge/libspatialindex)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/libspatialindex/badges/downloads.svg)](https://anaconda.org/conda-forge/libspatialindex)
+
 
 Updating libspatialindex-feedstock
 ==================================
