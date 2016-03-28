@@ -10,11 +10,16 @@ source:
     md5: 4065c6218ce3d1c4906beb3a313470db
 
 build:
-    number: 0
     skip: True  # [py35 and win]
+    number: 1
+    features:
+        - vc9  # [win and py27]
+        - vc10  # [win and py34]
+        - vc14  # [win and py35]
+
 
 requirements:
-    run:
+    build:
         # The VS version is important.
         - python  # [win]
 
