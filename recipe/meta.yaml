@@ -8,25 +8,25 @@ source:
     fn: spatialindex-src-{{ version }}.tar.gz
     url: http://download.osgeo.org/libspatialindex/spatialindex-src-{{ version }}.tar.gz
     md5: 4065c6218ce3d1c4906beb3a313470db
+    patches:
+        - tool.h.patch  # [win and py35]
+        - cmakelists.patch  # [win and py35]
 
 build:
-    skip: True  # [py35 and win]
     number: 1
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
         - vc14  # [win and py35]
 
-
 requirements:
     build:
-        # The VS version is important.
         - python  # [win]
 
 test:
     commands:
-        - exit $(test -f ${PREFIX}/lib/libspatialindex_c.so)  # [linux]
-        - exit $(test -f ${PREFIX}/lib/libspatialindex_c.dylib)  # [osx]
+        - test -f ${PREFIX}/lib/libspatialindex_c.so  # [linux]
+        - test -f ${PREFIX}/lib/libspatialindex_c.dylib  # [osx]
 
 about:
     home: http://libspatialindex.github.io
