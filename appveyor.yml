@@ -2,6 +2,7 @@
 # file, make changes to conda-forge.yml and/or recipe/meta.yaml, and run
 # "conda smithy rerender".
 
+
 environment:
 
   # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
@@ -13,22 +14,26 @@ environment:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
     secure: MP4hZYylDyUWEsrt3u3cod2sbFeRwUziH02mvQOdbjsTO/l1yIxDkP/76rSIjcGC
 
+  # Eveything is set to Miniconda35 as a workaround until AppVeyor fix its base image.
+  # https://github.com/appveyor/ci/issues/1222
+  # Note that the right python is downloaded at build time,
+  # and the extra time is not too much in most cases.
   matrix:
     - TARGET_ARCH: x86
       CONDA_PY: 27
-      CONDA_INSTALL_LOCN: C:\\Miniconda
+      CONDA_INSTALL_LOCN: C:\\Miniconda35
 
     - TARGET_ARCH: x64
       CONDA_PY: 27
-      CONDA_INSTALL_LOCN: C:\\Miniconda-x64
+      CONDA_INSTALL_LOCN: C:\\Miniconda35-x64
 
     - TARGET_ARCH: x86
       CONDA_PY: 34
-      CONDA_INSTALL_LOCN: C:\\Miniconda3
+      CONDA_INSTALL_LOCN: C:\\Miniconda35
 
     - TARGET_ARCH: x64
       CONDA_PY: 34
-      CONDA_INSTALL_LOCN: C:\\Miniconda3-x64
+      CONDA_INSTALL_LOCN: C:\\Miniconda35-x64
 
     - TARGET_ARCH: x86
       CONDA_PY: 35
@@ -36,6 +41,14 @@ environment:
 
     - TARGET_ARCH: x64
       CONDA_PY: 35
+      CONDA_INSTALL_LOCN: C:\\Miniconda35-x64
+
+    - TARGET_ARCH: x86
+      CONDA_PY: 36
+      CONDA_INSTALL_LOCN: C:\\Miniconda35
+
+    - TARGET_ARCH: x64
+      CONDA_PY: 36
       CONDA_INSTALL_LOCN: C:\\Miniconda35-x64
 
 
@@ -59,25 +72,18 @@ install:
     - cmd: rmdir C:\cygwin /s /q
 
     # Add our channels.
-    - cmd: set "OLDPATH=%PATH%"
     - cmd: set "PATH=%CONDA_INSTALL_LOCN%\\Scripts;%CONDA_INSTALL_LOCN%\\Library\\bin;%PATH%"
     - cmd: conda config --set show_channel_urls true
     - cmd: conda config --add channels conda-forge
-
-    # Add a hack to switch to `conda` version `4.1.12` before activating.
-    # This is required to handle a long path activation issue.
-    # Please see PR ( https://github.com/conda/conda/pull/3349 ).
-    - cmd: conda install --yes --quiet conda=4.1.12
-    - cmd: set "PATH=%OLDPATH%"
-    - cmd: set "OLDPATH="
-
-    # Actually activate `conda`.
-    - cmd: call %CONDA_INSTALL_LOCN%\Scripts\activate.bat
     - cmd: set PYTHONUNBUFFERED=1
 
     - cmd: conda install -n root --quiet --yes obvious-ci
     - cmd: conda install -n root --quiet --yes conda-forge-build-setup
     - cmd: run_conda_forge_build_setup
+
+    # Install conda-build 2.x to build with a long prefix.
+    - cmd: conda install --yes --quiet conda-build=2
+    - cmd: conda info
 
 # Skip .NET project specific build phase.
 build: off
