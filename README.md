@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: Extensible framework for robust spatial indexing
+Summary: Extensible framework for robust spatial indexing.
 
 
 
