@@ -8,8 +8,8 @@ source:
   url: http://download.osgeo.org/libspatialindex/spatialindex-src-{{ version }}.tar.gz
   sha256: 7caa46a2cb9b40960f7bc82c3de60fa14f8f3e000b02561b36cbf2cfe6a9bfef
   patches:
-    - tool.h.patch  # [win and vc14]
-    - cmakelists.patch  # [win and vc14]
+    - tool.h.patch  # [win and vc>=14]
+    - cmakelists.patch  # [win and vc>=14]
 
 build:
   number: 1
