@@ -1,8 +1,10 @@
-cmake -G "NMake Makefiles" ^
+mkdir build
+cd build
+
+cmake -G "%CMAKE_GENERATOR%" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-      -D CMAKE_BUILD_TYPE=Release ^
-      .
+      %SRC_DIR%
 if errorlevel 1 exit 1
 
-nmake install
+cmake --build . --config Release --target install
 if errorlevel 1 exit 1

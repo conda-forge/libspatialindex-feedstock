@@ -14,14 +14,16 @@ Summary: Extensible framework for robust spatial indexing.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/libspatialindex-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/libspatialindex-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/libspatialindex-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/libspatialindex-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/libspatialindex-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/libspatialindex-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/libspatialindex-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/libspatialindex-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/libspatialindex-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/libspatialindex-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/libspatialindex-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/libspatialindex-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/libspatialindex/badges/version.svg)](https://anaconda.org/conda-forge/libspatialindex)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/libspatialindex/badges/downloads.svg)](https://anaconda.org/conda-forge/libspatialindex)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libspatialindex-green.svg)](https://anaconda.org/conda-forge/libspatialindex) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libspatialindex.svg)](https://anaconda.org/conda-forge/libspatialindex) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libspatialindex.svg)](https://anaconda.org/conda-forge/libspatialindex) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libspatialindex.svg)](https://anaconda.org/conda-forge/libspatialindex) |
 
 Installing libspatialindex
 ==========================
@@ -66,6 +68,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
