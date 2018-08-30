@@ -12,7 +12,7 @@ source:
     - cmakelists.patch  # [win and vc>=14]
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -24,8 +24,6 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libspatialindex_c.so  # [linux]
     - test -f ${PREFIX}/lib/libspatialindex_c.dylib  # [osx]
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://libspatialindex.github.io
