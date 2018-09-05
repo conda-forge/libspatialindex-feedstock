@@ -12,7 +12,7 @@ source:
     - cmakelists.patch  # [win and vc>=14]
 
 build:
-  number: 3
+  number: 1003
 
 requirements:
   build:
