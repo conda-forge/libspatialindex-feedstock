@@ -9,8 +9,11 @@ cmake -G "Ninja" ^
     %SRC_DIR%
 if errorlevel 1 exit 1
 
-ctest -V --output-on-failure
+ninja
 if errorlevel 1 exit 1
 
-cmake --build . --config Release --target install
+ninja install
+if errorlevel 1 exit 1
+
+ctest -V --output-on-failure
 if errorlevel 1 exit 1
