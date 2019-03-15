@@ -1,5 +1,4 @@
-mkdir build
-cd build
+mkdir build && cd build
 
 cmake -G "%CMAKE_GENERATOR%" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
