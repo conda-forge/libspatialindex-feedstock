@@ -11,6 +11,9 @@ source:
 build:
   number: 0
   skip: True  # [win and vc<14]
+  run_exports:
+    # https://github.com/conda-forge/libspatialindex-feedstock/pull/18#issuecomment-473935733
+    - {{ pin_subpackage('libspatialindex', max_pin='x.x') }}
 
 requirements:
   build:
