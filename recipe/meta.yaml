@@ -9,7 +9,7 @@ source:
   sha256: 7c8809cd7e827efdc8bd80f786cf2a2d4f25adb92f954d46f7f28ad410bd46e2
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14]
   run_exports:
     # https://github.com/conda-forge/libspatialindex-feedstock/pull/18#issuecomment-473935733
