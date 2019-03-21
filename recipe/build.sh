@@ -1,11 +1,13 @@
 #!/bin/bash
 
-export CFLAGS="-O2 -Wl,-S $CFLAGS"
+mkdir -p build && cd build
 
-./configure --prefix=$PREFIX --host=$HOST
+cmake -D CMAKE_INSTALL_PREFIX=${PREFIX} \
+      -D CMAKE_LIBRARY_PATH:FILEPATH="${PREFIX}/lib" \
+      -D CMAKE_INCLUDE_PATH:FILEPATH="${PREFIX}/include" \
+      -D CMAKE_INSTALL_PREFIX=${PREFIX} \
+      ${SRC_DIR}
 
-make -j$CPU_COUNT
-make check -j$CPU_COUNT
-make install -j$CPU_COUNT
-
-find $PREFIX -name '*.la' -delete
+make -j${CPU_COUNT} ${VERBOSE_CM}
+make install -j${CPU_COUNT}
+ctest -VV --output-on-failure

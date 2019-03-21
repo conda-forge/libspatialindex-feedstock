@@ -1,24 +1,26 @@
-{% set version = "1.8.5" %}
+{% set version = "1.9.0" %}
 
 package:
   name: libspatialindex
   version: {{ version }}
 
 source:
-  url: http://download.osgeo.org/libspatialindex/spatialindex-src-{{ version }}.tar.gz
-  sha256: 7caa46a2cb9b40960f7bc82c3de60fa14f8f3e000b02561b36cbf2cfe6a9bfef
-  patches:
-    - tool.h.patch  # [win and vc>=14]
-    - cmakelists.patch  # [win and vc>=14]
+  url: https://github.com/libspatialindex/libspatialindex/archive/{{ version }}.tar.gz
+  sha256: 7c8809cd7e827efdc8bd80f786cf2a2d4f25adb92f954d46f7f28ad410bd46e2
 
 build:
-  number: 1003
+  number: 0
+  skip: True  # [win and vc<14]
+  run_exports:
+    # https://github.com/conda-forge/libspatialindex-feedstock/pull/18#issuecomment-473935733
+    - {{ pin_subpackage('libspatialindex', max_pin='x.x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake  # [win]
+    - cmake
+    - ninja  # [win]
 
 test:
   commands:
@@ -28,7 +30,7 @@ about:
   home: http://libspatialindex.github.io
   license: MIT
   license_file: COPYING
-  summary: 'Extensible framework for robust spatial indexing.'
+  summary: 'Extensible framework for robust spatial indexing'
 
 extra:
   recipe-maintainers:
