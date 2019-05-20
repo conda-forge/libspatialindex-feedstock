@@ -5,7 +5,6 @@ mkdir -p build && cd build
 cmake -D CMAKE_INSTALL_PREFIX=${PREFIX} \
       -D CMAKE_LIBRARY_PATH:FILEPATH="${PREFIX}/lib" \
       -D CMAKE_INCLUDE_PATH:FILEPATH="${PREFIX}/include" \
-      -D CMAKE_INSTALL_PREFIX=${PREFIX} \
       ${SRC_DIR}
 
 make -j${CPU_COUNT} ${VERBOSE_CM}
