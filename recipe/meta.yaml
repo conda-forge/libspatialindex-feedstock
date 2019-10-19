@@ -1,4 +1,4 @@
-{% set version = "1.9.0" %}
+{% set version = "1.9.1" %}
 
 package:
   name: libspatialindex
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/libspatialindex/libspatialindex/archive/{{ version }}.tar.gz
-  sha256: 7c8809cd7e827efdc8bd80f786cf2a2d4f25adb92f954d46f7f28ad410bd46e2
+  sha256: 07aa7345603f554ad4e27c3cde7d1251a80661cf062243b59da8593ba1dc06d7
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win and vc<14]
   run_exports:
     # https://github.com/conda-forge/libspatialindex-feedstock/pull/18#issuecomment-473935733
