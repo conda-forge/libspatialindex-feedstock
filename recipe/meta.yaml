@@ -1,4 +1,4 @@
-{% set version = "1.9.0" %}
+{% set version = "1.9.3" %}
 
 package:
   name: libspatialindex
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/libspatialindex/libspatialindex/archive/{{ version }}.tar.gz
-  sha256: 7c8809cd7e827efdc8bd80f786cf2a2d4f25adb92f954d46f7f28ad410bd46e2
+  sha256: 7b44340a3edc55c11abfc453bb60f148b29f569cef9e1148583e76132e9c7379
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('libspatialindex', max_pin='x.x.x') }}
@@ -34,3 +34,4 @@ about:
 extra:
   recipe-maintainers:
     - ocefpaf
+    - hobu
