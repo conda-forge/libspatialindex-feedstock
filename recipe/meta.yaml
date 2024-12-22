@@ -1,4 +1,4 @@
-{% set version = "2.0.0" %}
+{% set version = "2.1.0" %}
 
 package:
   name: libspatialindex
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/libspatialindex/libspatialindex/archive/{{ version }}.tar.gz
-  sha256: 32ebf9e3456436c383f78cc7a28c203da46159af3c652f5346c68a8e61090515
+  sha256: a04513cea04dd20ab2c9d153c14cc45692805ee496b30619103f7929f6fb81bf
 
 build:
   number: 0
